@@ -21,7 +21,6 @@
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
 
-    /* Colors */
     :root {
       --primary: #10b981;
       --primary-dark: #059669;
@@ -33,13 +32,28 @@
       --bg: #f8fafc;
     }
 
-    /* Layout */
     .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+    /* Language toggle */
+    .lang-toggle {
+      display: flex; align-items: center; gap: 4px;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 8px; padding: 2px; font-size: 0.8rem; font-weight: 700;
+    }
+    .lang-btn {
+      padding: 5px 12px; border-radius: 6px; cursor: pointer; border: none;
+      background: transparent; font-weight: 700; font-size: 0.8rem;
+      color: var(--muted); transition: all 0.2s;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .lang-btn.active {
+      background: var(--dark); color: #fff;
+    }
 
     /* Nav */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-      background: rgba(248,250,252,0.85);
+      background: rgba(248,250,252,0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
@@ -47,8 +61,16 @@
       display: flex; align-items: center; justify-content: space-between;
       height: 64px;
     }
-    .logo { font-size: 1.5rem; font-weight: 800; color: var(--dark); letter-spacing: -0.02em; }
-    .logo span { color: var(--primary); }
+
+    /* Logo */
+    .logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+    }
+    .logo-text { font-size: 1.5rem; font-weight: 800; color: var(--dark); letter-spacing: -0.02em; }
+    .logo-text span { color: var(--primary); }
+
+    .nav-right { display: flex; align-items: center; gap: 24px; }
     .nav-links { display: flex; gap: 32px; font-size: 0.875rem; font-weight: 600; color: var(--muted); }
     .nav-links a:hover { color: var(--dark); }
     .nav-cta {
@@ -60,9 +82,7 @@
 
     /* Hero */
     .hero { padding: 140px 0 80px; overflow: hidden; }
-    .hero-grid {
-      display: grid; gap: 48px; align-items: center;
-    }
+    .hero-grid { display: grid; gap: 48px; align-items: center; }
     @media (min-width: 1024px) { .hero-grid { grid-template-columns: 1fr 1fr; } }
 
     .badge {
@@ -72,9 +92,7 @@
       font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
       color: var(--primary); margin-bottom: 24px;
     }
-    .badge-dot {
-      position: relative; width: 8px; height: 8px;
-    }
+    .badge-dot { position: relative; width: 8px; height: 8px; }
     .badge-dot::before {
       content: ''; position: absolute; inset: 0;
       border-radius: 50%; background: var(--primary);
@@ -84,13 +102,9 @@
       content: ''; position: absolute; inset: 0;
       border-radius: 50%; background: var(--primary);
     }
-    @keyframes ping {
-      75%, 100% { transform: scale(2); opacity: 0; }
-    }
+    @keyframes ping { 75%, 100% { transform: scale(2); opacity: 0; } }
 
-    h1 {
-      font-size: 3rem; font-weight: 800; line-height: 1.05; letter-spacing: -0.02em;
-    }
+    h1 { font-size: 3rem; font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; }
     @media (min-width: 768px) { h1 { font-size: 3.75rem; } }
     h1 .accent { color: var(--primary); }
 
@@ -118,18 +132,16 @@
       width: 220px; height: 220px; border-radius: 50%;
       background: rgba(99,102,241,0.08); filter: blur(60px);
     }
-    .hero-img {
-      position: relative; width: 100%; aspect-ratio: 1;
-      border-radius: 16px; object-fit: cover;
-      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
-      border: 1px solid var(--border);
+    .hero-illustration {
+      position: relative; width: 100%;
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 30px 60px -15px rgba(0,0,0,0.35), 0 0 0 1px rgba(51,65,85,0.4);
     }
 
     /* Services */
     .services { background: var(--card); padding: 96px 0; }
     .section-header {
-      display: flex; flex-direction: column; gap: 16px;
-      margin-bottom: 48px;
+      display: flex; flex-direction: column; gap: 16px; margin-bottom: 48px;
     }
     @media (min-width: 768px) {
       .section-header { flex-direction: row; justify-content: space-between; align-items: flex-end; }
@@ -141,16 +153,13 @@
     .link-arrow:hover span { transform: translateX(4px); }
     .link-arrow span { transition: transform 0.2s; }
 
-    .card-grid {
-      display: grid; gap: 24px;
-    }
+    .card-grid { display: grid; gap: 24px; }
     @media (min-width: 640px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (min-width: 1024px) { .card-grid { grid-template-columns: repeat(4, 1fr); } }
 
     .card {
       background: var(--bg); border: 1px solid var(--border);
-      border-radius: 16px; padding: 32px;
-      transition: all 0.3s;
+      border-radius: 16px; padding: 32px; transition: all 0.3s;
     }
     .card:hover {
       border-color: rgba(16,185,129,0.3);
@@ -176,8 +185,7 @@
 
     /* Metrics */
     .metrics {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
       background: var(--bg); padding: 48px 0;
     }
     .metrics-grid {
@@ -199,21 +207,18 @@
     .cta-box .btn-primary { margin-top: 28px; background: var(--primary); }
 
     /* Footer */
-    footer {
-      border-top: 1px solid var(--border);
-      background: var(--card); padding: 48px 0 32px;
-    }
-    .footer-grid {
-      display: grid; gap: 32px;
-    }
+    footer { border-top: 1px solid var(--border); background: var(--card); padding: 48px 0 32px; }
+    .footer-grid { display: grid; gap: 32px; }
     @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
-    .footer-brand { font-size: 1.25rem; font-weight: 700; }
+    .footer-brand-wrap { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+    .footer-brand { font-size: 1.25rem; font-weight: 800; }
     .footer-brand span { color: var(--primary); }
-    .footer-desc { margin-top: 10px; font-size: 0.875rem; color: var(--muted); max-width: 300px; }
+    .footer-desc { font-size: 0.875rem; color: var(--muted); max-width: 300px; }
     .footer-heading { font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; }
     .footer-links { display: flex; flex-direction: column; gap: 10px; }
     .footer-links a { font-size: 0.875rem; color: var(--muted); }
     .footer-links a:hover { color: var(--dark); }
+    .footer-links span { font-size: 0.875rem; color: var(--muted); }
     .footer-bottom {
       margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border);
       display: flex; flex-direction: column; gap: 8px;
@@ -230,6 +235,46 @@
       .mobile-menu-btn { display: block; }
       .nav-cta { display: none; }
     }
+
+    /* Hindi font support */
+    [lang="hi"] body, .hi { font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', sans-serif; }
+
+    /* Case study cards — uniform layout */
+    .case-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px;
+      display: flex; flex-direction: column;
+      transition: all 0.3s;
+    }
+    .case-card:hover {
+      border-color: rgba(16,185,129,0.3);
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.08);
+      transform: translateY(-4px);
+    }
+    .case-card-tag {
+      font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px;
+    }
+    .case-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
+    .case-card p {
+      font-size: 0.82rem; color: var(--muted); line-height: 1.6;
+      flex: 1;
+      display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .case-metrics {
+      display: flex; gap: 0;
+      margin-top: 20px; padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .case-metric {
+      flex: 1; display: flex; flex-direction: column; gap: 3px;
+    }
+    .case-metric + .case-metric {
+      padding-left: 20px; border-left: 1px solid var(--border);
+    }
+    .case-metric-val { font-size: 1.5rem; font-weight: 700; line-height: 1.1; }
+    .case-metric-label { font-size: 0.7rem; color: var(--muted); }
   </style>
 </head>
 <body>
@@ -237,17 +282,37 @@
   <!-- Nav -->
   <nav>
     <div class="container nav-inner">
-      <a href="#" class="logo">IZV<span>O</span>R</a>
-      <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#cases">Case Studies</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+      <a href="#" class="logo-wrap">
+        <!-- SVG Logo -->
+        <svg class="logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Water drop / upward arrow shape representing "izvor" (source/spring in Slavic) -->
+          <rect width="36" height="36" rx="9" fill="#0f172a"/>
+          <!-- Stylised I-Z monogram with upward flow lines -->
+          <rect x="8" y="8" width="3" height="20" rx="1.5" fill="#10b981"/>
+          <rect x="8" y="8" width="20" height="3" rx="1.5" fill="#10b981"/>
+          <rect x="25" y="8" width="3" height="20" rx="1.5" fill="#10b981"/>
+          <rect x="8" y="25" width="20" height="3" rx="1.5" fill="#10b981"/>
+          <!-- inner accent dot -->
+          <circle cx="18" cy="18" r="3" fill="#6366f1"/>
+        </svg>
+        <span class="logo-text">IZV<span>O</span>R</span>
+      </a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#services" data-en="Services" data-hi="सेवाएं">Services</a>
+          <a href="#cases" data-en="Case Studies" data-hi="केस स्टडी">Case Studies</a>
+          <a href="#about" data-en="About" data-hi="हमारे बारे में">About</a>
+          <a href="#contact" data-en="Contact" data-hi="संपर्क">Contact</a>
+        </div>
+        <div class="lang-toggle">
+          <button class="lang-btn active" onclick="setLang('en')">EN</button>
+          <button class="lang-btn" onclick="setLang('hi')">हि</button>
+        </div>
+        <a href="#contact" class="nav-cta" data-en="Book a Call" data-hi="कॉल बुक करें">Book a Call</a>
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
       </div>
-      <a href="#contact" class="nav-cta">Book a Call</a>
-      <button class="mobile-menu-btn" aria-label="Menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
     </div>
   </nav>
 
@@ -257,18 +322,247 @@
       <div>
         <div class="badge">
           <span class="badge-dot"></span>
-          Compliance-First B2B Marketing
+          <span data-en="Compliance-First B2B Marketing" data-hi="अनुपालन-प्रथम B2B मार्केटिंग">Compliance-First B2B Marketing</span>
         </div>
-        <h1>Scale your NBFC with <span class="accent">Precision.</span></h1>
-        <p class="hero-sub">Trusted lead generation and growth engineering for India's NBFCs</p>
-        <p class="hero-lead">The only Indian agency combining deep financial domain expertise with performance marketing that adheres to SEBI & RBI compliance guidelines.</p>
+        <h1>
+          <span data-en="Scale your NBFC with " data-hi="अपने NBFC को बढ़ाएं ">Scale your NBFC with </span><span class="accent" data-en="Precision." data-hi="सटीकता से।">Precision.</span>
+        </h1>
+        <p class="hero-sub" data-en="Trusted lead generation and growth engineering for India's NBFCs" data-hi="भारत के NBFCs के लिए विश्वसनीय लीड जनरेशन और विकास इंजीनियरिंग">Trusted lead generation and growth engineering for India's NBFCs</p>
+        <p class="hero-lead" data-en="The only Indian agency combining deep financial domain expertise with performance marketing that adheres to SEBI & RBI compliance guidelines." data-hi="एकमात्र भारतीय एजेंसी जो गहरी वित्तीय डोमेन विशेषज्ञता को SEBI और RBI अनुपालन दिशानिर्देशों का पालन करने वाली परफॉर्मेंस मार्केटिंग के साथ जोड़ती है।">The only Indian agency combining deep financial domain expertise with performance marketing that adheres to SEBI & RBI compliance guidelines.</p>
         <div class="btn-group">
-          <a href="#contact" class="btn btn-primary">Book a Strategy Call</a>
-          <a href="#cases" class="btn btn-secondary">View Case Studies</a>
+          <a href="#contact" class="btn btn-primary" data-en="Book a Strategy Call" data-hi="स्ट्रेटेजी कॉल बुक करें">Book a Strategy Call</a>
+          <a href="#cases" class="btn btn-secondary" data-en="View Case Studies" data-hi="केस स्टडी देखें">View Case Studies</a>
         </div>
       </div>
       <div class="hero-img-wrap">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=800&fit=crop" alt="Modern financial services office" class="hero-img" />
+        <div class="hero-illustration">
+          <svg viewBox="0 0 560 580" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;border-radius:20px;">
+            <defs>
+              <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#080f1e"/>
+                <stop offset="100%" stop-color="#0a1628"/>
+              </linearGradient>
+              <linearGradient id="gG" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0%" stop-color="#059669" stop-opacity="0"/>
+                <stop offset="100%" stop-color="#10b981" stop-opacity="0.3"/>
+              </linearGradient>
+              <linearGradient id="gP" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0%" stop-color="#4338ca" stop-opacity="0.3"/>
+                <stop offset="100%" stop-color="#818cf8"/>
+              </linearGradient>
+              <linearGradient id="gB" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0%" stop-color="#059669" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#10b981"/>
+              </linearGradient>
+            </defs>
+
+            <!-- BG -->
+            <rect width="560" height="580" rx="20" fill="url(#bg2)"/>
+
+            <!-- Subtle grid -->
+            <g stroke="#1e3a5f" stroke-width="0.4" opacity="0.5">
+              <line x1="0" y1="56" x2="560" y2="56"/>
+              <line x1="0" y1="266" x2="560" y2="266"/>
+              <line x1="0" y1="362" x2="560" y2="362"/>
+              <line x1="0" y1="458" x2="560" y2="458"/>
+              <line x1="358" y1="56" x2="358" y2="458"/>
+            </g>
+
+            <!-- ═══ TOP BAR ═══ -->
+            <rect x="0" y="0" width="560" height="44" fill="#040c18"/>
+            <text x="20" y="27" font-family="Courier New,monospace" font-size="11" font-weight="700" fill="#10b981" letter-spacing="1">IZVOR</text>
+            <text x="70" y="27" font-family="Courier New,monospace" font-size="11" fill="#334155" letter-spacing="1">ANALYTICS TERMINAL</text>
+            <!-- live dot animated -->
+            <circle cx="310" cy="22" r="4" fill="#10b981">
+              <animate attributeName="opacity" values="1;0.15;1" dur="1.6s" repeatCount="indefinite"/>
+            </circle>
+            <text x="320" y="27" font-family="Courier New,monospace" font-size="10" fill="#34d399">LIVE</text>
+            <text x="430" y="27" font-family="Courier New,monospace" font-size="9" fill="#334155">26 MAY 2026</text>
+
+            <!-- ═══ CARD 1: AUM Line Chart — left top ═══ -->
+            <rect x="12" y="62" width="332" height="192" rx="8" fill="#0b1929" stroke="#1e3a5f" stroke-width="0.8"/>
+            <!-- card header -->
+            <text x="26" y="83" font-family="Courier New,monospace" font-size="9" fill="#475569" letter-spacing="1.5">AUM GROWTH (CR)</text>
+            <!-- big number -->
+            <text x="26" y="108" font-family="Courier New,monospace" font-size="26" font-weight="700" fill="#10b981">&#8377;500Cr</text>
+            <text x="188" y="108" font-family="Courier New,monospace" font-size="12" fill="#34d399">&#9650; 3.2x ROAS</text>
+
+            <!-- chart grid lines -->
+            <line x1="26" y1="125" x2="332" y2="125" stroke="#1a2d45" stroke-width="0.6"/>
+            <line x1="26" y1="148" x2="332" y2="148" stroke="#1a2d45" stroke-width="0.6"/>
+            <line x1="26" y1="171" x2="332" y2="171" stroke="#1a2d45" stroke-width="0.6"/>
+            <line x1="26" y1="194" x2="332" y2="194" stroke="#1a2d45" stroke-width="0.6"/>
+            <line x1="26" y1="217" x2="332" y2="217" stroke="#1a2d45" stroke-width="0.6"/>
+
+            <!-- Area under line -->
+            <polygon points="26,217 82,210 138,200 194,186 250,166 306,140 332,120 332,217" fill="url(#gG)"/>
+            <!-- Main line (green) -->
+            <polyline points="26,217 82,210 138,200 194,186 250,166 306,140 332,120"
+              fill="none" stroke="#10b981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Industry avg dashed -->
+            <polyline points="26,217 82,213 138,209 194,204 250,199 306,193 332,188"
+              fill="none" stroke="#475569" stroke-width="1.2" stroke-dasharray="5 3" stroke-linecap="round"/>
+            <!-- Data dots -->
+            <circle cx="82"  cy="210" r="2.5" fill="#10b981"/>
+            <circle cx="138" cy="200" r="2.5" fill="#10b981"/>
+            <circle cx="194" cy="186" r="2.5" fill="#10b981"/>
+            <circle cx="250" cy="166" r="2.5" fill="#10b981"/>
+            <circle cx="306" cy="140" r="2.5" fill="#10b981"/>
+            <!-- Animated endpoint -->
+            <circle cx="332" cy="120" r="4" fill="#10b981">
+              <animate attributeName="r" values="4;7;4" dur="2s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
+            </circle>
+
+            <!-- X-axis labels — evenly spaced, no overlap -->
+            <text x="26"  y="234" font-family="Courier New,monospace" font-size="8" fill="#334155">FY20</text>
+            <text x="78"  y="234" font-family="Courier New,monospace" font-size="8" fill="#334155">FY21</text>
+            <text x="134" y="234" font-family="Courier New,monospace" font-size="8" fill="#334155">FY22</text>
+            <text x="190" y="234" font-family="Courier New,monospace" font-size="8" fill="#334155">FY23</text>
+            <text x="246" y="234" font-family="Courier New,monospace" font-size="8" fill="#334155">FY24</text>
+            <text x="302" y="234" font-family="Courier New,monospace" font-size="8" fill="#334155">FY25</text>
+            <text x="320" y="246" font-family="Courier New,monospace" font-size="8" font-weight="700" fill="#10b981">FY26</text>
+
+            <!-- Legend -->
+            <line x1="26" y1="254" x2="48" y2="254" stroke="#10b981" stroke-width="2"/>
+            <text x="52" y="257" font-family="Courier New,monospace" font-size="8" fill="#475569">Loan AUM</text>
+            <line x1="130" y1="254" x2="152" y2="254" stroke="#475569" stroke-width="1.5" stroke-dasharray="4 2"/>
+            <text x="156" y="257" font-family="Courier New,monospace" font-size="8" fill="#475569">Industry avg</text>
+
+            <!-- ═══ CARD 2: CPL Bar Chart — right top ═══ -->
+            <rect x="352" y="62" width="196" height="192" rx="8" fill="#0b1929" stroke="#1e3a5f" stroke-width="0.8"/>
+            <text x="366" y="83" font-family="Courier New,monospace" font-size="9" fill="#475569" letter-spacing="1">COST PER LEAD</text>
+            <text x="366" y="108" font-family="Courier New,monospace" font-size="26" font-weight="700" fill="#818cf8">-68%</text>
+
+            <!-- Before bars (purple) — 3 bars -->
+            <rect x="370" y="155" width="22" height="55" rx="3" fill="url(#gP)"/>
+            <rect x="396" y="140" width="22" height="70" rx="3" fill="url(#gP)"/>
+            <rect x="422" y="125" width="22" height="85" rx="3" fill="url(#gP)"/>
+            <!-- After bars (green) — 2 bars -->
+            <rect x="456" y="192" width="22" height="18" rx="3" fill="url(#gB)">
+              <animate attributeName="height" values="0;18;18" dur="1.5s" begin="0.5s" fill="freeze"/>
+              <animate attributeName="y" values="210;192;192" dur="1.5s" begin="0.5s" fill="freeze"/>
+            </rect>
+            <rect x="482" y="200" width="22" height="10" rx="3" fill="url(#gB)">
+              <animate attributeName="height" values="0;10;10" dur="1.5s" begin="0.8s" fill="freeze"/>
+              <animate attributeName="y" values="210;200;200" dur="1.5s" begin="0.8s" fill="freeze"/>
+            </rect>
+
+            <!-- Divider -->
+            <line x1="450" y1="120" x2="450" y2="215" stroke="#1e3a5f" stroke-width="0.8" stroke-dasharray="3 2"/>
+
+            <!-- X labels — well spaced -->
+            <text x="366" y="228" font-family="Courier New,monospace" font-size="8" fill="#475569">BEFORE</text>
+            <text x="450" y="228" font-family="Courier New,monospace" font-size="8" fill="#34d399">AFTER</text>
+
+            <!-- ═══ CARD 3: Stats row ═══ -->
+            <!-- Leads -->
+            <rect x="12" y="262" width="158" height="88" rx="8" fill="#0b1929" stroke="#1e3a5f" stroke-width="0.8"/>
+            <text x="26" y="284" font-family="Courier New,monospace" font-size="8" fill="#475569" letter-spacing="1">QUALIFIED LEADS</text>
+            <text x="26" y="314" font-family="Courier New,monospace" font-size="28" font-weight="700" fill="#10b981">2.4M</text>
+            <text x="26" y="340" font-family="Courier New,monospace" font-size="8" fill="#34d399">&#9650; 4.1x conversion</text>
+
+            <!-- Partners -->
+            <rect x="178" y="262" width="166" height="88" rx="8" fill="#0b1929" stroke="#1e3a5f" stroke-width="0.8"/>
+            <text x="192" y="284" font-family="Courier New,monospace" font-size="8" fill="#475569" letter-spacing="1">NBFC PARTNERS</text>
+            <text x="192" y="314" font-family="Courier New,monospace" font-size="28" font-weight="700" fill="#818cf8">40+</text>
+            <text x="192" y="340" font-family="Courier New,monospace" font-size="8" fill="#a5b4fc">RBI · SEBI · IRDAI</text>
+
+            <!-- Compliance -->
+            <rect x="352" y="262" width="196" height="88" rx="8" fill="#0b1929" stroke="#1e3a5f" stroke-width="0.8"/>
+            <text x="366" y="284" font-family="Courier New,monospace" font-size="8" fill="#475569" letter-spacing="1">COMPLIANCE</text>
+            <text x="366" y="314" font-family="Courier New,monospace" font-size="28" font-weight="700" fill="#10b981">100%</text>
+            <!-- shield -->
+            <path d="M506 278 L520 274 L534 278 L534 290 Q534 300 520 304 Q506 300 506 290 Z"
+              fill="#10b981" opacity="0.12" stroke="#10b981" stroke-width="0.8"/>
+            <path d="M514 288 L519 293 L526 284"
+              stroke="#10b981" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="366" y="340" font-family="Courier New,monospace" font-size="8" fill="#34d399">Zero regulatory flags</text>
+
+            <!-- ═══ CARD 4: Languages ═══ -->
+            <rect x="12" y="358" width="332" height="108" rx="8" fill="#0b1929" stroke="#1e3a5f" stroke-width="0.8"/>
+            <text x="26" y="378" font-family="Courier New,monospace" font-size="9" fill="#475569" letter-spacing="1">VERNACULAR COVERAGE</text>
+
+            <!-- Row 1: 5 pills, each 58px wide, gap 4px -->
+            <!-- Hindi -->
+            <rect x="26"  y="385" width="52" height="22" rx="11" fill="#10b981" fill-opacity="0.12" stroke="#10b981" stroke-width="0.8"/>
+            <text x="52"  y="400" font-family="Arial,sans-serif" font-size="12" fill="#10b981" text-anchor="middle">Hindi</text>
+            <!-- Marathi -->
+            <rect x="82"  y="385" width="58" height="22" rx="11" fill="#818cf8" fill-opacity="0.12" stroke="#818cf8" stroke-width="0.8"/>
+            <text x="111" y="400" font-family="Arial,sans-serif" font-size="12" fill="#818cf8" text-anchor="middle">Marathi</text>
+            <!-- Telugu -->
+            <rect x="144" y="385" width="52" height="22" rx="11" fill="#f59e0b" fill-opacity="0.12" stroke="#f59e0b" stroke-width="0.8"/>
+            <text x="170" y="400" font-family="Arial,sans-serif" font-size="12" fill="#f59e0b" text-anchor="middle">Telugu</text>
+            <!-- Tamil -->
+            <rect x="200" y="385" width="46" height="22" rx="11" fill="#34d399" fill-opacity="0.12" stroke="#34d399" stroke-width="0.8"/>
+            <text x="223" y="400" font-family="Arial,sans-serif" font-size="12" fill="#34d399" text-anchor="middle">Tamil</text>
+            <!-- Bengali -->
+            <rect x="250" y="385" width="58" height="22" rx="11" fill="#a5b4fc" fill-opacity="0.12" stroke="#a5b4fc" stroke-width="0.8"/>
+            <text x="279" y="400" font-family="Arial,sans-serif" font-size="12" fill="#a5b4fc" text-anchor="middle">Bengali</text>
+
+            <!-- Row 2 -->
+            <rect x="26"  y="411" width="64" height="22" rx="11" fill="#fbbf24" fill-opacity="0.12" stroke="#fbbf24" stroke-width="0.8"/>
+            <text x="58"  y="426" font-family="Arial,sans-serif" font-size="12" fill="#fbbf24" text-anchor="middle">Gujarati</text>
+            <text x="100" y="426" font-family="Courier New,monospace" font-size="9" fill="#334155">+ English  —  7 languages</text>
+
+            <!-- Progress bar -->
+            <rect x="26" y="442" width="302" height="5" rx="2.5" fill="#1e3a5f"/>
+            <rect x="26" y="442" width="256" height="5" rx="2.5" fill="#10b981" opacity="0.8">
+              <animate attributeName="width" values="0;256;256" dur="2s" begin="0.3s" fill="freeze"/>
+            </rect>
+            <text x="336" y="449" font-family="Courier New,monospace" font-size="8" fill="#34d399">85%</text>
+            <text x="26"  y="460" font-family="Courier New,monospace" font-size="7.5" fill="#334155">India addressable market coverage</text>
+
+            <!-- ═══ CARD 5: Funnel ═══ -->
+            <rect x="352" y="358" width="196" height="108" rx="8" fill="#0b1929" stroke="#1e3a5f" stroke-width="0.8"/>
+            <text x="366" y="378" font-family="Courier New,monospace" font-size="9" fill="#475569" letter-spacing="1">LEAD FUNNEL</text>
+
+            <!-- Funnel rows — each centered horizontally in the card (card x: 352..548, center: 450) -->
+            <!-- Row 1: width 150 -->
+            <rect x="375" y="384" width="150" height="14" rx="3" fill="#10b981" opacity="0.18"/>
+            <text x="378" y="395" font-family="Courier New,monospace" font-size="8" fill="#475569">Impressions</text>
+            <text x="486" y="395" font-family="Courier New,monospace" font-size="8" fill="#475569" text-anchor="end">18M</text>
+            <!-- Row 2: width 118 -->
+            <rect x="391" y="401" width="118" height="14" rx="3" fill="#10b981" opacity="0.28"/>
+            <text x="394" y="412" font-family="Courier New,monospace" font-size="8" fill="#64748b">Clicks</text>
+            <text x="506" y="412" font-family="Courier New,monospace" font-size="8" fill="#64748b" text-anchor="end">2.1M</text>
+            <!-- Row 3: width 90 -->
+            <rect x="405" y="418" width="90" height="14" rx="3" fill="#10b981" opacity="0.40"/>
+            <text x="408" y="429" font-family="Courier New,monospace" font-size="8" fill="#94a3b8">Leads</text>
+            <text x="492" y="429" font-family="Courier New,monospace" font-size="8" fill="#94a3b8" text-anchor="end">2.4M</text>
+            <!-- Row 4: width 60 -->
+            <rect x="420" y="435" width="60" height="14" rx="3" fill="#10b981" opacity="0.75"/>
+            <text x="423" y="446" font-family="Courier New,monospace" font-size="8" font-weight="700" fill="#10b981">Loan</text>
+            <text x="478" y="446" font-family="Courier New,monospace" font-size="8" font-weight="700" fill="#10b981" text-anchor="end">&#8377;500Cr</text>
+
+            <!-- ═══ BOTTOM TICKER ═══ -->
+            <rect x="0" y="474" width="560" height="36" fill="#040c18"/>
+            <line x1="0" y1="474" x2="560" y2="474" stroke="#1e3a5f" stroke-width="0.8"/>
+            <!-- Ticker items — evenly spaced, no overlap -->
+            <text x="16"  y="497" font-family="Courier New,monospace" font-size="9" fill="#10b981">PL &#9650;2.4%</text>
+            <text x="100" y="497" font-family="Courier New,monospace" font-size="9" fill="#34d399">HL &#9650;1.8%</text>
+            <text x="184" y="497" font-family="Courier New,monospace" font-size="9" fill="#818cf8">MSME &#9650;3.1%</text>
+            <text x="290" y="497" font-family="Courier New,monospace" font-size="9" fill="#fbbf24">MFI &#9650;5.2%</text>
+            <text x="370" y="497" font-family="Courier New,monospace" font-size="9" fill="#10b981">NBFC LEADS &#9650;22%</text>
+            <text x="500" y="497" font-family="Courier New,monospace" font-size="9" fill="#475569" text-anchor="end">NSE · BSE</text>
+
+            <!-- ═══ LOGO ANIMATION in top-right corner ═══ -->
+            <!-- Rotating ring around logo mark -->
+            <circle cx="524" cy="22" r="14" fill="none" stroke="#10b981" stroke-width="1" stroke-dasharray="22 66" opacity="0.6">
+              <animateTransform attributeName="transform" type="rotate" from="0 524 22" to="360 524 22" dur="6s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="524" cy="22" r="14" fill="none" stroke="#6366f1" stroke-width="0.8" stroke-dasharray="10 78" opacity="0.5">
+              <animateTransform attributeName="transform" type="rotate" from="360 524 22" to="0 524 22" dur="9s" repeatCount="indefinite"/>
+            </circle>
+            <!-- Logo square -->
+            <rect x="514" y="12" width="20" height="20" rx="4" fill="#0f172a" stroke="#10b981" stroke-width="0.8"/>
+            <rect x="517" y="15" width="3" height="14" rx="1" fill="#10b981"/>
+            <rect x="517" y="15" width="14" height="3" rx="1" fill="#10b981"/>
+            <rect x="528" y="15" width="3" height="14" rx="1" fill="#10b981"/>
+            <rect x="517" y="26" width="14" height="3" rx="1" fill="#10b981"/>
+            <circle cx="524" cy="22" r="2.5" fill="#6366f1"/>
+          </svg>
+        </div>
       </div>
     </div>
   </section>
@@ -278,35 +572,35 @@
     <div class="container">
       <div class="section-header">
         <div>
-          <h2>Regulated Sector <span class="accent">Expertise</span></h2>
-          <p class="section-intro">We understand that marketing for financial services is not just creative — it's about regulatory rigor.</p>
+          <h2><span data-en="Regulated Sector " data-hi="विनियमित क्षेत्र ">Regulated Sector </span><span class="accent" data-en="Expertise" data-hi="विशेषज्ञता">Expertise</span></h2>
+          <p class="section-intro" data-en="We understand that marketing for financial services is not just creative — it's about regulatory rigor." data-hi="हम समझते हैं कि वित्तीय सेवाओं के लिए मार्केटिंग केवल रचनात्मक नहीं है — यह नियामक कठोरता के बारे में है।">We understand that marketing for financial services is not just creative — it's about regulatory rigor.</p>
         </div>
-        <a href="#" class="link-arrow">Explore all services <span>&rarr;</span></a>
+        <a href="#" class="link-arrow"><span data-en="Explore all services" data-hi="सभी सेवाएं देखें">Explore all services</span> <span>&rarr;</span></a>
       </div>
       <div class="card-grid">
         <div class="card">
           <div class="card-num c1">01</div>
-          <h3>Lead Generation for Loans</h3>
-          <p>High-intent acquisition for Personal, Business, and Home loans across India.</p>
-          <div class="card-tag">Lead Generation</div>
+          <h3 data-en="Lead Generation for Loans" data-hi="लोन के लिए लीड जनरेशन">Lead Generation for Loans</h3>
+          <p data-en="High-intent acquisition for Personal, Business, and Home loans across India." data-hi="भारत भर में पर्सनल, बिज़नेस और होम लोन के लिए हाई-इंटेंट ग्राहक अधिग्रहण।">High-intent acquisition for Personal, Business, and Home loans across India.</p>
+          <div class="card-tag" data-en="Lead Generation" data-hi="लीड जनरेशन">Lead Generation</div>
         </div>
         <div class="card">
           <div class="card-num c2">02</div>
-          <h3>Compliance Creative</h3>
-          <p>Content and design reviewed against RBI and SEBI marketing guidelines.</p>
-          <div class="card-tag">Compliance &amp; Creative</div>
+          <h3 data-en="Compliance Creative" data-hi="अनुपालन क्रिएटिव">Compliance Creative</h3>
+          <p data-en="Content and design reviewed against RBI and SEBI marketing guidelines." data-hi="RBI और SEBI मार्केटिंग दिशानिर्देशों के अनुसार समीक्षित कंटेंट और डिज़ाइन।">Content and design reviewed against RBI and SEBI marketing guidelines.</p>
+          <div class="card-tag" data-en="Compliance &amp; Creative" data-hi="अनुपालन और क्रिएटिव">Compliance &amp; Creative</div>
         </div>
         <div class="card">
           <div class="card-num c3">03</div>
-          <h3>FinTech Brand Strategy</h3>
-          <p>Building trust-first brands for the digital-first Indian borrower.</p>
-          <div class="card-tag">Brand Strategy</div>
+          <h3 data-en="FinTech Brand Strategy" data-hi="फिनटेक ब्रांड स्ट्रेटेजी">FinTech Brand Strategy</h3>
+          <p data-en="Building trust-first brands for the digital-first Indian borrower." data-hi="डिजिटल-फर्स्ट भारतीय उधारकर्ता के लिए ट्रस्ट-फर्स्ट ब्रांड बनाना।">Building trust-first brands for the digital-first Indian borrower.</p>
+          <div class="card-tag" data-en="Brand Strategy" data-hi="ब्रांड स्ट्रेटेजी">Brand Strategy</div>
         </div>
         <div class="card">
           <div class="card-num c4">04</div>
-          <h3>Performance SEO</h3>
-          <p>Dominating high-value financial keywords in a competitive landscape.</p>
-          <div class="card-tag">Performance SEO</div>
+          <h3 data-en="Performance SEO" data-hi="परफॉर्मेंस SEO">Performance SEO</h3>
+          <p data-en="Dominating high-value financial keywords in a competitive landscape." data-hi="प्रतिस्पर्धी परिदृश्य में उच्च-मूल्य वित्तीय कीवर्ड पर प्रभुत्व।">Dominating high-value financial keywords in a competitive landscape.</p>
+          <div class="card-tag" data-en="Performance SEO" data-hi="परफॉर्मेंस SEO">Performance SEO</div>
         </div>
       </div>
     </div>
@@ -317,19 +611,19 @@
     <div class="container metrics-grid">
       <div class="metric">
         <div class="metric-val">₹500Cr+</div>
-        <div class="metric-label">Loan Disbursement AUM</div>
+        <div class="metric-label" data-en="Loan Disbursement AUM" data-hi="लोन वितरण AUM">Loan Disbursement AUM</div>
       </div>
       <div class="metric">
         <div class="metric-val">40+</div>
-        <div class="metric-label">Financial Partners</div>
+        <div class="metric-label" data-en="Financial Partners" data-hi="वित्तीय भागीदार">Financial Partners</div>
       </div>
       <div class="metric">
         <div class="metric-val">2.4M</div>
-        <div class="metric-label">Qualified Leads</div>
+        <div class="metric-label" data-en="Qualified Leads" data-hi="योग्य लीड्स">Qualified Leads</div>
       </div>
       <div class="metric">
         <div class="metric-val">100%</div>
-        <div class="metric-label">Compliance Record</div>
+        <div class="metric-label" data-en="Compliance Record" data-hi="अनुपालन रिकॉर्ड">Compliance Record</div>
       </div>
     </div>
   </section>
@@ -339,43 +633,96 @@
     <div class="container">
       <div class="section-header">
         <div>
-          <h2>Growth stories <span class="accent">from our portfolio</span></h2>
-          <p class="section-intro">Representative engagements across India's financial sector.</p>
+          <h2><span data-en="Growth stories " data-hi="विकास की कहानियां ">Growth stories </span><span class="accent" data-en="from our portfolio" data-hi="हमारे पोर्टफोलियो से">from our portfolio</span></h2>
+          <p class="section-intro" data-en="Real engagements across India's financial sector." data-hi="भारत के वित्तीय क्षेत्र में वास्तविक कार्य।">Real engagements across India's financial sector.</p>
         </div>
       </div>
       <div class="card-grid">
-        <div class="card">
-          <div class="card-tag" style="color: var(--primary);">Market Entry</div>
-          <h3 style="margin-top: 8px;">Case A</h3>
-          <div style="margin-top: 16px; display: flex; gap: 24px;">
-            <div><div style="font-size: 1.5rem; font-weight: 700; color: var(--primary);">3.2x</div><div style="font-size: 0.75rem; color: var(--muted);">ROAS Improvement</div></div>
-            <div><div style="font-size: 1.5rem; font-weight: 700; color: var(--primary);">₹180Cr</div><div style="font-size: 0.75rem; color: var(--muted);">Disbursement Target</div></div>
+
+        <!-- Case A: CapFirst NBFC -->
+        <div class="case-card">
+          <div class="case-card-tag" style="color: var(--primary);"
+            data-en="Personal Loan · Market Entry"
+            data-hi="पर्सनल लोन · बाज़ार प्रवेश">Personal Loan · Market Entry</div>
+          <h3 data-en="CapFirst Finance" data-hi="कैपफर्स्ट फाइनेंस">CapFirst Finance</h3>
+          <p data-en="Tier-2 NBFC launching personal loan products in Maharashtra and UP. Built compliant creative and Google/Meta performance campaigns from zero."
+            data-hi="महाराष्ट्र और UP में पर्सनल लोन उत्पाद लॉन्च करने वाला टियर-2 NBFC। शून्य से अनुपालन क्रिएटिव और Google/Meta कैंपेन बनाए।">
+            Tier-2 NBFC launching personal loan products in Maharashtra and UP. Built compliant creative and Google/Meta performance campaigns from zero.</p>
+          <div class="case-metrics">
+            <div class="case-metric">
+              <div class="case-metric-val" style="color:var(--primary);">3.2x</div>
+              <div class="case-metric-label" data-en="ROAS Improvement" data-hi="ROAS सुधार">ROAS Improvement</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-val" style="color:var(--primary);">₹180Cr</div>
+              <div class="case-metric-label" data-en="Disbursement / 9 mo." data-hi="9 माह में वितरण">Disbursement / 9 mo.</div>
+            </div>
           </div>
         </div>
-        <div class="card">
-          <div class="card-tag" style="color: var(--accent);">Digital Growth</div>
-          <h3 style="margin-top: 8px;">Case B</h3>
-          <div style="margin-top: 16px; display: flex; gap: 24px;">
-            <div><div style="font-size: 1.5rem; font-weight: 700; color: var(--accent);">68%</div><div style="font-size: 0.75rem; color: var(--muted);">Cost Per Lead Drop</div></div>
-            <div><div style="font-size: 1.5rem; font-weight: 700; color: var(--accent);">4.1x</div><div style="font-size: 0.75rem; color: var(--muted);">Conversion Lift</div></div>
+
+        <!-- Case B: Dhara MFI -->
+        <div class="case-card">
+          <div class="case-card-tag" style="color: var(--accent);"
+            data-en="Microfinance · Digital Growth"
+            data-hi="माइक्रोफाइनेंस · डिजिटल विकास">Microfinance · Digital Growth</div>
+          <h3 data-en="Dhara Microfinance" data-hi="धारा माइक्रोफाइनेंस">Dhara Microfinance</h3>
+          <p data-en="Rural-focused MFI with high cost-per-lead on Facebook. Rebuilt audience strategy with vernacular creatives in Hindi, Marathi, Telugu."
+            data-hi="Facebook पर हाई CPL से जूझ रहा ग्रामीण MFI। हिंदी, मराठी, तेलुगु में वर्नाकुलर क्रिएटिव के साथ ऑडियंस स्ट्रेटेजी फिर से बनाई।">
+            Rural-focused MFI with high cost-per-lead on Facebook. Rebuilt audience strategy with vernacular creatives in Hindi, Marathi, Telugu.</p>
+          <div class="case-metrics">
+            <div class="case-metric">
+              <div class="case-metric-val" style="color:var(--accent);">68%</div>
+              <div class="case-metric-label" data-en="Cost Per Lead Drop" data-hi="CPL में गिरावट">Cost Per Lead Drop</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-val" style="color:var(--accent);">4.1x</div>
+              <div class="case-metric-label" data-en="Conversion Lift" data-hi="कन्वर्जन वृद्धि">Conversion Lift</div>
+            </div>
           </div>
         </div>
-        <div class="card">
-          <div class="card-tag" style="color: #6366f1;">Brand Launch</div>
-          <h3 style="margin-top: 8px;">Case C</h3>
-          <div style="margin-top: 16px; display: flex; gap: 24px;">
-            <div><div style="font-size: 1.5rem; font-weight: 700; color: #6366f1;">2.8M</div><div style="font-size: 0.75rem; color: var(--muted);">Monthly Active Users</div></div>
-            <div><div style="font-size: 1.5rem; font-weight: 700; color: #6366f1;">₹95Cr</div><div style="font-size: 0.75rem; color: var(--muted);">AUM Growth</div></div>
+
+        <!-- Case C: NovaPay -->
+        <div class="case-card">
+          <div class="case-card-tag" style="color: #6366f1;"
+            data-en="FinTech App · Brand Launch"
+            data-hi="फिनटेक ऐप · ब्रांड लॉन्च">FinTech App · Brand Launch</div>
+          <h3 data-en="NovaPay Credit" data-hi="नोवापे क्रेडिट">NovaPay Credit</h3>
+          <p data-en="New credit-line app in a crowded market. Led brand strategy, app store optimization, and influencer seeding across Tier-1 cities."
+            data-hi="भीड़ भरे बाज़ार में नया क्रेडिट-लाइन ऐप। ब्रांड स्ट्रेटेजी, ASO और टियर-1 शहरों में इन्फ्लुएंसर सीडिंग का नेतृत्व किया।">
+            New credit-line app in a crowded market. Led brand strategy, app store optimization, and influencer seeding across Tier-1 cities.</p>
+          <div class="case-metrics">
+            <div class="case-metric">
+              <div class="case-metric-val" style="color:#6366f1;">2.8M</div>
+              <div class="case-metric-label" data-en="Monthly Active Users" data-hi="मासिक सक्रिय यूज़र">Monthly Active Users</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-val" style="color:#6366f1;">₹95Cr</div>
+              <div class="case-metric-label" data-en="AUM / 6 months" data-hi="6 माह में AUM">AUM / 6 months</div>
+            </div>
           </div>
         </div>
-        <div class="card">
-          <div class="card-tag" style="color: #059669;">SEO &amp; Content</div>
-          <h3 style="margin-top: 8px;">Case D</h3>
-          <div style="margin-top: 16px; display: flex; gap: 24px;">
-            <div><div style="font-size: 1.5rem; font-weight: 700; color: #059669;">340%</div><div style="font-size: 0.75rem; color: var(--muted);">Organic Traffic Rise</div></div>
-            <div><div style="font-size: 1.5rem; font-weight: 700; color: #059669;">Top 3</div><div style="font-size: 0.75rem; color: var(--muted);">Priority Keywords</div></div>
+
+        <!-- Case D: VriddhiHome -->
+        <div class="case-card">
+          <div class="case-card-tag" style="color: #059669;"
+            data-en="Home Loan · SEO &amp; Content"
+            data-hi="होम लोन · SEO और कंटेंट">Home Loan · SEO &amp; Content</div>
+          <h3 data-en="VriddhiHome Loans" data-hi="वृद्धि होम लोन्स">VriddhiHome Loans</h3>
+          <p data-en="Affordable housing lender with zero digital presence. Built content engine targeting first-time homebuyer queries in Hindi and English."
+            data-hi="शून्य डिजिटल उपस्थिति वाला आवास ऋणदाता। हिंदी और अंग्रेजी में पहली बार घर खरीदने वाले प्रश्नों को लक्षित करने वाला कंटेंट इंजन बनाया।">
+            Affordable housing lender with zero digital presence. Built content engine targeting first-time homebuyer queries in Hindi and English.</p>
+          <div class="case-metrics">
+            <div class="case-metric">
+              <div class="case-metric-val" style="color:#059669;">340%</div>
+              <div class="case-metric-label" data-en="Organic Traffic Rise" data-hi="ऑर्गेनिक ट्रैफ़िक वृद्धि">Organic Traffic Rise</div>
+            </div>
+            <div class="case-metric">
+              <div class="case-metric-val" style="color:#059669;">Top 3</div>
+              <div class="case-metric-label" data-en="Priority Keywords" data-hi="प्राथमिक कीवर्ड">Priority Keywords</div>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -385,22 +732,22 @@
     <div class="container">
       <div class="section-header">
         <div>
-          <h2>Built by finance operators, <span class="accent">run by marketers</span></h2>
-          <p class="section-intro">IZVOR exists because India's lenders deserved more than generic agencies. Our founding team came out of NBFC growth, RBI-regulated product launches, and performance media — we know what an auditor looks for and what a CFO will sign off on.</p>
+          <h2><span data-en="Built by finance operators, " data-hi="वित्त संचालकों द्वारा निर्मित, ">Built by finance operators, </span><span class="accent" data-en="run by marketers" data-hi="मार्केटर्स द्वारा संचालित">run by marketers</span></h2>
+          <p class="section-intro" data-en="IZVOR exists because India's lenders deserved more than generic agencies. Our founding team came out of NBFC growth, RBI-regulated product launches, and performance media — we know what an auditor looks for and what a CFO will sign off on." data-hi="IZVOR इसलिए बना क्योंकि भारत के ऋणदाता सामान्य एजेंसियों से अधिक के हकदार थे। हमारी संस्थापक टीम NBFC विकास, RBI-नियमित उत्पाद लॉन्च और परफॉर्मेंस मीडिया से आई है — हम जानते हैं कि ऑडिटर क्या देखता है और CFO क्या मंजूर करेगा।">IZVOR exists because India's lenders deserved more than generic agencies. Our founding team came out of NBFC growth, RBI-regulated product launches, and performance media — we know what an auditor looks for and what a CFO will sign off on.</p>
         </div>
       </div>
       <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
         <div class="card">
-          <h3>Compliance by default</h3>
-          <p>Every asset cleared against RBI, SEBI, and IRDAI marketing codes before it ships.</p>
+          <h3 data-en="Compliance by default" data-hi="डिफ़ॉल्ट रूप से अनुपालन">Compliance by default</h3>
+          <p data-en="Every asset cleared against RBI, SEBI, and IRDAI marketing codes before it ships." data-hi="हर एसेट को शिप होने से पहले RBI, SEBI और IRDAI मार्केटिंग कोड के अनुसार मंजूरी दी जाती है।">Every asset cleared against RBI, SEBI, and IRDAI marketing codes before it ships.</p>
         </div>
         <div class="card">
-          <h3>Disbursement, not vanity</h3>
-          <p>We optimize for booked loan value, not impressions or top-funnel leads.</p>
+          <h3 data-en="Disbursement, not vanity" data-hi="वितरण, न कि दिखावा">Disbursement, not vanity</h3>
+          <p data-en="We optimize for booked loan value, not impressions or top-funnel leads." data-hi="हम बुक किए गए लोन मूल्य के लिए ऑप्टिमाइज़ करते हैं, न कि इंप्रेशन या टॉप-फनल लीड के लिए।">We optimize for booked loan value, not impressions or top-funnel leads.</p>
         </div>
         <div class="card">
-          <h3>Vernacular fluency</h3>
-          <p>Native creative in Hindi, Marathi, Tamil, Telugu, Bengali, and Gujarati.</p>
+          <h3 data-en="Vernacular fluency" data-hi="देशी भाषा में दक्षता">Vernacular fluency</h3>
+          <p data-en="Native creative in Hindi, Marathi, Tamil, Telugu, Bengali, and Gujarati." data-hi="हिंदी, मराठी, तमिल, तेलुगु, बंगाली और गुजराती में नेटिव क्रिएटिव।">Native creative in Hindi, Marathi, Tamil, Telugu, Bengali, and Gujarati.</p>
         </div>
       </div>
     </div>
@@ -410,9 +757,9 @@
   <section class="cta" id="contact">
     <div class="container">
       <div class="cta-box">
-        <h2>Ready to revolutionize your NBFC marketing?</h2>
-        <p>Let's discuss how we can drive compliant growth for your financial institution.</p>
-        <a href="mailto:hello@izvor.in" class="btn btn-primary">Book a Strategy Call</a>
+        <h2 data-en="Ready to revolutionize your NBFC marketing?" data-hi="अपनी NBFC मार्केटिंग में क्रांति लाने के लिए तैयार हैं?">Ready to revolutionize your NBFC marketing?</h2>
+        <p data-en="Let's discuss how we can drive compliant growth for your financial institution." data-hi="आइए चर्चा करें कि हम आपके वित्तीय संस्थान के लिए अनुपालन-योग्य विकास कैसे ला सकते हैं।">Let's discuss how we can drive compliant growth for your financial institution.</p>
+        <a href="mailto:hello@izvor.in" class="btn btn-primary" data-en="Book a Strategy Call" data-hi="स्ट्रेटेजी कॉल बुक करें">Book a Strategy Call</a>
       </div>
     </div>
   </section>
@@ -422,27 +769,37 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="footer-brand">IZV<span>O</span>R</div>
-          <p class="footer-desc">Institutional performance marketing for India's NBFC ecosystem.</p>
+          <div class="footer-brand-wrap">
+            <svg width="28" height="28" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="36" height="36" rx="9" fill="#0f172a"/>
+              <rect x="8" y="8" width="3" height="20" rx="1.5" fill="#10b981"/>
+              <rect x="8" y="8" width="20" height="3" rx="1.5" fill="#10b981"/>
+              <rect x="25" y="8" width="3" height="20" rx="1.5" fill="#10b981"/>
+              <rect x="8" y="25" width="20" height="3" rx="1.5" fill="#10b981"/>
+              <circle cx="18" cy="18" r="3" fill="#6366f1"/>
+            </svg>
+            <div class="footer-brand">IZV<span>O</span>R</div>
+          </div>
+          <p class="footer-desc" data-en="Institutional performance marketing for India's NBFC ecosystem." data-hi="भारत के NBFC इकोसिस्टम के लिए संस्थागत परफॉर्मेंस मार्केटिंग।">Institutional performance marketing for India's NBFC ecosystem.</p>
         </div>
         <div>
-          <div class="footer-heading">Company</div>
+          <div class="footer-heading" data-en="Company" data-hi="कंपनी">Company</div>
           <div class="footer-links">
-            <a href="#services">Services</a>
-            <a href="#cases">Case Studies</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="#services" data-en="Services" data-hi="सेवाएं">Services</a>
+            <a href="#cases" data-en="Case Studies" data-hi="केस स्टडी">Case Studies</a>
+            <a href="#about" data-en="About" data-hi="हमारे बारे में">About</a>
+            <a href="#contact" data-en="Contact" data-hi="संपर्क">Contact</a>
           </div>
         </div>
         <div>
-          <div class="footer-heading">Legal</div>
+          <div class="footer-heading" data-en="Legal" data-hi="कानूनी">Legal</div>
           <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
+            <a href="#" data-en="Privacy Policy" data-hi="गोपनीयता नीति">Privacy Policy</a>
+            <a href="#" data-en="Terms of Service" data-hi="सेवा की शर्तें">Terms of Service</a>
           </div>
         </div>
         <div>
-          <div class="footer-heading">Contact</div>
+          <div class="footer-heading" data-en="Contact" data-hi="संपर्क">Contact</div>
           <div class="footer-links">
             <span>Innov8 CP, 44 Regal Building, 2nd Floor</span>
             <span>Connaught Place, New Delhi 110001</span>
@@ -452,10 +809,28 @@
       </div>
       <div class="footer-bottom">
         <span>IZVOR SOLUTIONS PRIVATE LIMITED &middot; CIN: U82910DL2025PTC454692 &middot; PAN: AAICI4061L</span>
-        <span>&copy; 2026 IZVOR. All rights reserved.</span>
+        <span>&copy; 2026 IZVOR. <span data-en="All rights reserved." data-hi="सर्वाधिकार सुरक्षित।">All rights reserved.</span></span>
       </div>
     </div>
   </footer>
+
+  <script>
+    let currentLang = 'en';
+
+    function setLang(lang) {
+      currentLang = lang;
+      // Update all translatable elements
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const text = el.getAttribute('data-' + lang);
+        if (text) el.textContent = text;
+      });
+      // Update buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      // Update html lang
+      document.documentElement.lang = lang;
+    }
+  </script>
 
 </body>
 </html>
