@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IZVOR — Compliance-First Marketing for NBFCs & Banks in India</title>
+  <meta name="description" content="IZVOR is India's specialist B2B marketing agency for NBFCs, banks, fintech and insurance. Lead generation, compliance creative, and brand strategy under SEBI/RBI guidelines." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* Colors */
+    :root {
+      --primary: #10b981;
+      --primary-dark: #059669;
+      --accent: #6366f1;
+      --dark: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --card: #ffffff;
+      --bg: #f8fafc;
+    }
+
+    /* Layout */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      background: rgba(248,250,252,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .logo { font-size: 1.5rem; font-weight: 800; color: var(--dark); letter-spacing: -0.02em; }
+    .logo span { color: var(--primary); }
+    .nav-links { display: flex; gap: 32px; font-size: 0.875rem; font-weight: 600; color: var(--muted); }
+    .nav-links a:hover { color: var(--dark); }
+    .nav-cta {
+      background: var(--primary); color: #fff; padding: 8px 20px;
+      border-radius: 8px; font-size: 0.875rem; font-weight: 700;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--primary-dark); }
+
+    /* Hero */
+    .hero { padding: 140px 0 80px; overflow: hidden; }
+    .hero-grid {
+      display: grid; gap: 48px; align-items: center;
+    }
+    @media (min-width: 1024px) { .hero-grid { grid-template-columns: 1fr 1fr; } }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid rgba(16,185,129,0.2); background: rgba(16,185,129,0.08);
+      padding: 6px 14px; border-radius: 9999px;
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+      color: var(--primary); margin-bottom: 24px;
+    }
+    .badge-dot {
+      position: relative; width: 8px; height: 8px;
+    }
+    .badge-dot::before {
+      content: ''; position: absolute; inset: 0;
+      border-radius: 50%; background: var(--primary);
+      animation: ping 1.5s cubic-bezier(0,0,0.2,1) infinite;
+    }
+    .badge-dot::after {
+      content: ''; position: absolute; inset: 0;
+      border-radius: 50%; background: var(--primary);
+    }
+    @keyframes ping {
+      75%, 100% { transform: scale(2); opacity: 0; }
+    }
+
+    h1 {
+      font-size: 3rem; font-weight: 800; line-height: 1.05; letter-spacing: -0.02em;
+    }
+    @media (min-width: 768px) { h1 { font-size: 3.75rem; } }
+    h1 .accent { color: var(--primary); }
+
+    .hero-sub { margin-top: 16px; font-size: 1.5rem; font-weight: 600; color: var(--muted); }
+    .hero-lead { margin-top: 20px; font-size: 1.125rem; color: var(--muted); max-width: 520px; }
+
+    .btn-group { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 16px; }
+    .btn {
+      display: inline-block; padding: 14px 32px; border-radius: 8px;
+      font-weight: 700; font-size: 1rem; transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--primary); color: #fff;
+      box-shadow: 0 10px 25px -5px rgba(16,185,129,0.25);
+    }
+    .btn-primary:hover { transform: translateY(-2px); background: var(--primary-dark); }
+    .btn-secondary {
+      background: var(--card); color: var(--dark); border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { border-color: var(--primary); }
+
+    .hero-img-wrap { position: relative; }
+    .hero-img-wrap::before {
+      content: ''; position: absolute; top: -48px; left: -48px;
+      width: 220px; height: 220px; border-radius: 50%;
+      background: rgba(99,102,241,0.08); filter: blur(60px);
+    }
+    .hero-img {
+      position: relative; width: 100%; aspect-ratio: 1;
+      border-radius: 16px; object-fit: cover;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+      border: 1px solid var(--border);
+    }
+
+    /* Services */
+    .services { background: var(--card); padding: 96px 0; }
+    .section-header {
+      display: flex; flex-direction: column; gap: 16px;
+      margin-bottom: 48px;
+    }
+    @media (min-width: 768px) {
+      .section-header { flex-direction: row; justify-content: space-between; align-items: flex-end; }
+    }
+    h2 { font-size: 1.875rem; font-weight: 700; letter-spacing: -0.02em; }
+    h2 .accent { color: var(--primary); }
+    .section-intro { color: var(--muted); margin-top: 12px; max-width: 560px; }
+    .link-arrow { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: var(--primary); }
+    .link-arrow:hover span { transform: translateX(4px); }
+    .link-arrow span { transition: transform 0.2s; }
+
+    .card-grid {
+      display: grid; gap: 24px;
+    }
+    @media (min-width: 640px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .card-grid { grid-template-columns: repeat(4, 1fr); } }
+
+    .card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 16px; padding: 32px;
+      transition: all 0.3s;
+    }
+    .card:hover {
+      border-color: rgba(16,185,129,0.3);
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.08);
+      transform: translateY(-4px);
+    }
+    .card-num {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--card); font-weight: 700; font-size: 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 20px;
+    }
+    .card-num.c1 { color: var(--primary); }
+    .card-num.c2 { color: var(--accent); }
+    .card-num.c3 { color: #6366f1; }
+    .card-num.c4 { color: #059669; }
+    .card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; }
+    .card p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+    .card-tag {
+      margin-top: 20px; font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8;
+    }
+
+    /* Metrics */
+    .metrics {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg); padding: 48px 0;
+    }
+    .metrics-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;
+    }
+    @media (min-width: 768px) { .metrics-grid { grid-template-columns: repeat(4, 1fr); } }
+    .metric { text-align: center; }
+    .metric-val { font-size: 1.875rem; font-weight: 700; color: var(--primary); }
+    .metric-label { margin-top: 4px; font-size: 0.875rem; font-weight: 500; color: var(--muted); }
+
+    /* Contact CTA */
+    .cta { padding: 96px 0; }
+    .cta-box {
+      background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
+      border-radius: 24px; padding: 64px 32px; text-align: center; color: #fff;
+    }
+    .cta-box h2 { font-size: 2rem; color: #fff; }
+    .cta-box p { margin-top: 12px; color: #94a3b8; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .cta-box .btn-primary { margin-top: 28px; background: var(--primary); }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--card); padding: 48px 0 32px;
+    }
+    .footer-grid {
+      display: grid; gap: 32px;
+    }
+    @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+    .footer-brand { font-size: 1.25rem; font-weight: 700; }
+    .footer-brand span { color: var(--primary); }
+    .footer-desc { margin-top: 10px; font-size: 0.875rem; color: var(--muted); max-width: 300px; }
+    .footer-heading { font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 0.875rem; color: var(--muted); }
+    .footer-links a:hover { color: var(--dark); }
+    .footer-bottom {
+      margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 8px;
+      font-size: 0.75rem; color: #94a3b8;
+    }
+    @media (min-width: 768px) {
+      .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; }
+    }
+
+    /* Mobile nav */
+    .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: block; }
+      .nav-cta { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="logo">IZV<span>O</span>R</a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#cases">Case Studies</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="#contact" class="nav-cta">Book a Call</a>
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Compliance-First B2B Marketing
+        </div>
+        <h1>Scale your NBFC with <span class="accent">Precision.</span></h1>
+        <p class="hero-sub">Trusted lead generation and growth engineering for India's NBFCs</p>
+        <p class="hero-lead">The only Indian agency combining deep financial domain expertise with performance marketing that adheres to SEBI & RBI compliance guidelines.</p>
+        <div class="btn-group">
+          <a href="#contact" class="btn btn-primary">Book a Strategy Call</a>
+          <a href="#cases" class="btn btn-secondary">View Case Studies</a>
+        </div>
+      </div>
+      <div class="hero-img-wrap">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=800&fit=crop" alt="Modern financial services office" class="hero-img" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2>Regulated Sector <span class="accent">Expertise</span></h2>
+          <p class="section-intro">We understand that marketing for financial services is not just creative — it's about regulatory rigor.</p>
+        </div>
+        <a href="#" class="link-arrow">Explore all services <span>&rarr;</span></a>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-num c1">01</div>
+          <h3>Lead Generation for Loans</h3>
+          <p>High-intent acquisition for Personal, Business, and Home loans across India.</p>
+          <div class="card-tag">Lead Generation</div>
+        </div>
+        <div class="card">
+          <div class="card-num c2">02</div>
+          <h3>Compliance Creative</h3>
+          <p>Content and design reviewed against RBI and SEBI marketing guidelines.</p>
+          <div class="card-tag">Compliance &amp; Creative</div>
+        </div>
+        <div class="card">
+          <div class="card-num c3">03</div>
+          <h3>FinTech Brand Strategy</h3>
+          <p>Building trust-first brands for the digital-first Indian borrower.</p>
+          <div class="card-tag">Brand Strategy</div>
+        </div>
+        <div class="card">
+          <div class="card-num c4">04</div>
+          <h3>Performance SEO</h3>
+          <p>Dominating high-value financial keywords in a competitive landscape.</p>
+          <div class="card-tag">Performance SEO</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metrics -->
+  <section class="metrics">
+    <div class="container metrics-grid">
+      <div class="metric">
+        <div class="metric-val">₹500Cr+</div>
+        <div class="metric-label">Loan Disbursement AUM</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val">40+</div>
+        <div class="metric-label">Financial Partners</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val">2.4M</div>
+        <div class="metric-label">Qualified Leads</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val">100%</div>
+        <div class="metric-label">Compliance Record</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies -->
+  <section class="services" id="cases" style="background: var(--bg);">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2>Growth stories <span class="accent">from our portfolio</span></h2>
+          <p class="section-intro">Representative engagements across India's financial sector.</p>
+        </div>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-tag" style="color: var(--primary);">Market Entry</div>
+          <h3 style="margin-top: 8px;">Case A</h3>
+          <div style="margin-top: 16px; display: flex; gap: 24px;">
+            <div><div style="font-size: 1.5rem; font-weight: 700; color: var(--primary);">3.2x</div><div style="font-size: 0.75rem; color: var(--muted);">ROAS Improvement</div></div>
+            <div><div style="font-size: 1.5rem; font-weight: 700; color: var(--primary);">₹180Cr</div><div style="font-size: 0.75rem; color: var(--muted);">Disbursement Target</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-tag" style="color: var(--accent);">Digital Growth</div>
+          <h3 style="margin-top: 8px;">Case B</h3>
+          <div style="margin-top: 16px; display: flex; gap: 24px;">
+            <div><div style="font-size: 1.5rem; font-weight: 700; color: var(--accent);">68%</div><div style="font-size: 0.75rem; color: var(--muted);">Cost Per Lead Drop</div></div>
+            <div><div style="font-size: 1.5rem; font-weight: 700; color: var(--accent);">4.1x</div><div style="font-size: 0.75rem; color: var(--muted);">Conversion Lift</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-tag" style="color: #6366f1;">Brand Launch</div>
+          <h3 style="margin-top: 8px;">Case C</h3>
+          <div style="margin-top: 16px; display: flex; gap: 24px;">
+            <div><div style="font-size: 1.5rem; font-weight: 700; color: #6366f1;">2.8M</div><div style="font-size: 0.75rem; color: var(--muted);">Monthly Active Users</div></div>
+            <div><div style="font-size: 1.5rem; font-weight: 700; color: #6366f1;">₹95Cr</div><div style="font-size: 0.75rem; color: var(--muted);">AUM Growth</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-tag" style="color: #059669;">SEO &amp; Content</div>
+          <h3 style="margin-top: 8px;">Case D</h3>
+          <div style="margin-top: 16px; display: flex; gap: 24px;">
+            <div><div style="font-size: 1.5rem; font-weight: 700; color: #059669;">340%</div><div style="font-size: 0.75rem; color: var(--muted);">Organic Traffic Rise</div></div>
+            <div><div style="font-size: 1.5rem; font-weight: 700; color: #059669;">Top 3</div><div style="font-size: 0.75rem; color: var(--muted);">Priority Keywords</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="services" id="about">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2>Built by finance operators, <span class="accent">run by marketers</span></h2>
+          <p class="section-intro">IZVOR exists because India's lenders deserved more than generic agencies. Our founding team came out of NBFC growth, RBI-regulated product launches, and performance media — we know what an auditor looks for and what a CFO will sign off on.</p>
+        </div>
+      </div>
+      <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+        <div class="card">
+          <h3>Compliance by default</h3>
+          <p>Every asset cleared against RBI, SEBI, and IRDAI marketing codes before it ships.</p>
+        </div>
+        <div class="card">
+          <h3>Disbursement, not vanity</h3>
+          <p>We optimize for booked loan value, not impressions or top-funnel leads.</p>
+        </div>
+        <div class="card">
+          <h3>Vernacular fluency</h3>
+          <p>Native creative in Hindi, Marathi, Tamil, Telugu, Bengali, and Gujarati.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="cta" id="contact">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Ready to revolutionize your NBFC marketing?</h2>
+        <p>Let's discuss how we can drive compliant growth for your financial institution.</p>
+        <a href="mailto:hello@izvor.in" class="btn btn-primary">Book a Strategy Call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">IZV<span>O</span>R</div>
+          <p class="footer-desc">Institutional performance marketing for India's NBFC ecosystem.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Company</div>
+          <div class="footer-links">
+            <a href="#services">Services</a>
+            <a href="#cases">Case Studies</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Legal</div>
+          <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Contact</div>
+          <div class="footer-links">
+            <span>Innov8 CP, 44 Regal Building, 2nd Floor</span>
+            <span>Connaught Place, New Delhi 110001</span>
+            <a href="mailto:hello@izvor.in">hello@izvor.in</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>IZVOR SOLUTIONS PRIVATE LIMITED &middot; CIN: U82910DL2025PTC454692 &middot; PAN: AAICI4061L</span>
+        <span>&copy; 2026 IZVOR. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
